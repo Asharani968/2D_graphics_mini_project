@@ -1,0 +1,186 @@
+Q: Why do we use a 2D array canvas[ROWS][COLS]?
+
+A: It stores the picture. Each element represents one position on the screen and contains either _ or *.
+
+2. Q: What is the purpose of initCanvas()?
+
+A: It fills the entire canvas with _ to create a blank drawing area.
+
+3. Q: Why is displayCanvas() used?
+
+A: It prints the current contents of the canvas on the screen.
+
+4. Q: What does the plot() function do?
+
+A: It places a * at the given coordinate (x,y) if it is inside the canvas boundary.
+
+5. Q: Why do we check boundaries in plot()?
+
+A: To prevent accessing invalid array locations and avoid errors.
+
+if(x >= 0 && x < ROWS && y >= 0 && y < COLS)
+6. Q: What is the logic of drawLine()?
+
+A: It plots points from the start coordinate to the end coordinate one by one, forming a line.
+
+7. Q: Why is abs() used in drawLine()?
+
+A: abs() returns the positive value of a number.
+
+Example:
+
+abs(-5) = 5
+
+Used to calculate distance differences:
+
+dx = abs(x2 - x1);
+dy = abs(y2 - y1);
+8. Q: What are dx and dy?
+
+A:
+
+dx = horizontal distance
+dy = vertical distance
+
+Example:
+
+(2,3) to (8,10)
+
+dx = 6
+dy = 7
+9. Q: What are sx and sy?
+
+A: They determine the direction of movement.
+
+sx = 1  -> move down/right
+sx = -1 -> move up/left
+
+Same for sy.
+
+10. Q: How is a rectangle drawn?
+
+A: By drawing four lines:
+
+Top
+Bottom
+Left
+Right
+drawLine(...)
+drawLine(...)
+drawLine(...)
+drawLine(...)
+11. Q: Why do we use width and height for a rectangle?
+
+A: Width gives horizontal size and height gives vertical size.
+
+12. Q: How is a circle drawn?
+
+A: Using angle values from 0° to 359°.
+
+For each angle:
+
+x = xc + r*cos(angle)
+y = yc + r*sin(angle)
+
+Then a point is plotted.
+
+13. Q: What are xc and yc?
+
+A: They are the center coordinates of the circle.
+
+14. Q: Why is cos() used?
+
+A: It calculates the horizontal position of a point on the circle.
+
+15. Q: Why is sin() used?
+
+A: It calculates the vertical position of a point on the circle.
+
+16. Q: Why convert degrees to radians?
+
+A: sin() and cos() work with radians.
+
+rad = angle * 3.14159 / 180;
+17. Q: How is a triangle drawn?
+
+A: By drawing three lines between three vertices.
+
+drawLine(x1,y1,x2,y2);
+drawLine(x2,y2,x3,y3);
+drawLine(x3,y3,x1,y1);
+18. Q: What is the purpose of deleteArea()?
+
+A: It removes drawings from a selected rectangular area by replacing * with _.
+
+19. Q: Why use nested loops in deleteArea()?
+
+A: To visit every row and column inside the selected area.
+
+20. Q: What happens when choice 7 is selected?
+
+A: The canvas is cleared by calling:
+
+initCanvas();
+21. Q: Why is a menu used?
+
+A: To allow the user to choose different operations like drawing, deleting, displaying, etc.
+
+22. Q: Why use functions?
+
+A: Functions make the program modular, reusable, and easier to understand.
+
+23. Q: What symbols are used in this editor?
+
+A:
+
+_ → Empty space
+* → Drawing point
+24. Q: How do you draw a line from (2,3) to (2,10)?
+
+A:
+Select:
+
+Choice = 1
+Enter x1 y1 x2 y2:
+2 3 2 10
+25. Q: How do you draw a rectangle?
+
+A:
+
+Choice = 2
+Enter x y width height:
+5 5 10 4
+26. Q: How do you draw a circle?
+
+A:
+
+Choice = 3
+Enter center_x center_y radius:
+10 20 5
+27. Q: How do you draw a triangle?
+
+A:
+
+Choice = 4
+Enter x1 y1 x2 y2 x3 y3:
+5 5 10 15 15 5
+28. Q: Why is math.h included?
+
+A: For mathematical functions such as:
+
+sin()
+cos()
+29. Q: Why is stdlib.h included?
+
+A: For the abs() function.
+
+30. Q: What is the overall logic of the program?
+
+A:
+
+Create a blank canvas.
+Take user choice.
+Draw/Delete shapes using coordinates.
+Store shapes as * in the 2D array.
+Display the canvas when required.
+Repeat until Exit.
